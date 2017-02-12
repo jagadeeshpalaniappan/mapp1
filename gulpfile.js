@@ -49,7 +49,7 @@ gulp.task('env:prod', function () {
 gulp.task('nodemon', function () {
   return plugins.nodemon({
     script: 'server.js',
-    nodeArgs: ['--debug'],
+    nodeArgs: ['--debug=45729'],
     ext: 'js,html',
     verbose: true,
     watch: _.union(defaultAssets.server.views, defaultAssets.server.allJS, defaultAssets.server.config)
@@ -68,7 +68,7 @@ gulp.task('nodemon-nodebug', function () {
 // Watch Files For Changes
 gulp.task('watch', function () {
   // Start livereload
-  plugins.refresh.listen();
+  plugins.refresh.listen('4040');
 
   // Add watch rules
   gulp.watch(defaultAssets.server.views).on('change', plugins.refresh.changed);
