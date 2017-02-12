@@ -1,12 +1,16 @@
 
 
-  <section class="content">
+  <section class="content" id="mapp1">
     <section class="container">
       
       
       <h1>Mapp1 :: </h1>
 
-      <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-inverse"></header>
+      {{{user}}}
+
+      <header ng-include="'modules/core/client/views/header.client.view.html'" class="navbar navbar-inverse"></header>
+
+
 
 
       {{{block "content"}}}
@@ -17,8 +21,19 @@
 
   <!--Embedding The User Object-->
   <script type="text/javascript">
-    var user = {{{ user }}};
+
+
+    // var user = {{{ user }}};
+
+    console.log("*********user*************");
+    console.log(user);
+
+
     var env = "{{ env }}";
+
+
+
+
   </script>
 
   

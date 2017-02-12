@@ -53,5 +53,7 @@
 
     // Then init the app
     angular.bootstrap(document, [app.applicationModuleName]);
+    // angular.bootstrap(document.querySelector('#mapp1'), [app.applicationModuleName]);
+
   }
 }(ApplicationConfiguration));
