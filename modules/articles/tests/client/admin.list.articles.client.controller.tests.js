@@ -47,8 +47,8 @@
       ArticlesService = _ArticlesService_;
 
       // Ignore parent template get on state transitions
-      $httpBackend.whenGET('/modules/articles/client/views/list-articles.client.view.html').respond(200, '');
-      $httpBackend.whenGET('/modules/core/client/views/home.client.view.html').respond(200, '');
+      $httpBackend.whenGET('modules/articles/client/views/list-articles.client.view.html').respond(200, '');
+      $httpBackend.whenGET('modules/core/client/views/home.client.view.html').respond(200, '');
 
       // create mock article
       mockArticle = new ArticlesService({

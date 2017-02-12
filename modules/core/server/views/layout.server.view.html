@@ -1,27 +1,19 @@
 
-  <!--<header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>-->
-
 
   <section class="content">
     <section class="container">
       
+      
       <h1>Mapp1 :: </h1>
+
+      <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-inverse"></header>
+
 
       {{{block "content"}}}
 
     </section>
   </section>
 
-  <noscript>
-    <style>
-      [ng\:cloak], [ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-        display: block !important;
-      }
-    </style>
-    <div class="alert alert-warning">
-      <strong>This page requires JavaScript.</strong> Please enable it in your browser.
-    </div>
-  </noscript>
 
   <!--Embedding The User Object-->
   <script type="text/javascript">
@@ -29,17 +21,11 @@
     var env = "{{ env }}";
   </script>
 
-  <!--Load The Socket.io File-->
-  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-
-  <!--Application JavaScript Files-->
-    {{#each jsFiles}}<script type="text/javascript" src="/{{this}}"></script>{{/each}}
   
-  <!--owasp config sync-->
-  <script type="text/javascript">
-    var sharedConfig = {{{ sharedConfig }}};
-    owaspPasswordStrengthTest.config(sharedConfig.owasp);
-  </script>
+  <!--Application JavaScript Files-->
+    {{#each jsFiles}}<script type="text/javascript" src="{{this}}"></script>{{/each}}
+  
+
 
   {{#if livereload}}
   <!--Livereload script rendered -->
