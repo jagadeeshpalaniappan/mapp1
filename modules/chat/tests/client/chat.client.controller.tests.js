@@ -49,7 +49,7 @@
         $httpBackend = _$httpBackend_;
 
         // Ignore parent template get on state transitions
-        $httpBackend.whenGET('/modules/core/client/views/home.client.view.html').respond(200, '');
+        $httpBackend.whenGET('modules/core/client/views/home.client.view.html').respond(200, '');
 
         ChatController = $controller('ChatController as vm', {
           $scope: $scope

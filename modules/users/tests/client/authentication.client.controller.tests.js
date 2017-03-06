@@ -48,8 +48,8 @@
         spyOn(Notification, 'success');
 
         // Ignore parent template get on state transitions
-        $httpBackend.whenGET('/modules/core/client/views/home.client.view.html').respond(200);
-        $httpBackend.whenGET('/modules/core/client/views/400.client.view.html').respond(200);
+        $httpBackend.whenGET('modules/core/client/views/home.client.view.html').respond(200);
+        $httpBackend.whenGET('modules/core/client/views/400.client.view.html').respond(200);
 
         // Initialize the Authentication controller
         AuthenticationController = $controller('AuthenticationController as vm', {
@@ -59,7 +59,7 @@
 
       describe('$scope.signin()', function () {
         it('should login with a correct user and password', inject(function ($templateCache) {
-          $templateCache.put('/modules/core/client/views/home.client.view.html', '');
+          $templateCache.put('modules/core/client/views/home.client.view.html', '');
 
           // Test expected GET request
           $httpBackend.when('POST', '/api/auth/signin').respond(200, { username: 'Fred' });
@@ -73,7 +73,7 @@
         }));
 
         it('should login with a correct email and password', inject(function ($templateCache) {
-          $templateCache.put('/modules/core/client/views/home.client.view.html', '');
+          $templateCache.put('modules/core/client/views/home.client.view.html', '');
           // Test expected GET request
           $httpBackend.when('POST', '/api/auth/signin').respond(200, { email: 'Fred@email.com' });
 
@@ -144,7 +144,7 @@
 
       describe('$scope.signup()', function () {
         it('should register with correct data', inject(function ($templateCache) {
-          $templateCache.put('/modules/core/client/views/home.client.view.html', '');
+          $templateCache.put('modules/core/client/views/home.client.view.html', '');
 
           // Test expected GET request
           scope.vm.authentication.user = 'Fred';
