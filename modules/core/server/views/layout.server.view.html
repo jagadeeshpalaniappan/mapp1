@@ -26,17 +26,20 @@
 
 -->
 
+<style>
+  .navbar-micro-app{
+    margin-left: -15px;
+    margin-right: -15px;
+    border-radius: 0;
+  }
+</style>
+
+
 <div id="mapp1">
 
-  <header ng-include="'modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-inverse"></header>
+  <header ng-include="'modules/core/client/views/header.client.view.html'" class="navbar navbar-default navbar-inverse navbar-micro-app"></header>
 
-  <section class="content m-top-50">
-    <section class="container">
-
-      {{{block "content"}}}
-
-    </section>
-  </section>
+  {{{block "content"}}}
 
 </div>
 
