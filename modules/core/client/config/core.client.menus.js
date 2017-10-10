@@ -21,22 +21,26 @@
 
     menuService.addSubMenuItem('account', 'settings', {
       title: 'Edit Profile',
-      state: 'settings.profile'
+      state: 'settings.profile',
+      url: '/#/settings/profile'
     });
 
     menuService.addSubMenuItem('account', 'settings', {
       title: 'Edit Profile Picture',
-      state: 'settings.picture'
+      state: 'settings.picture',
+      url: '/#/settings/picture'
     });
 
     menuService.addSubMenuItem('account', 'settings', {
       title: 'Change Password',
-      state: 'settings.password'
+      state: 'settings.password',
+      url: '/#/settings/password'
     });
 
     menuService.addSubMenuItem('account', 'settings', {
       title: 'Manage Social Accounts',
-      state: 'settings.accounts'
+      state: 'settings.accounts',
+      url: '/#/settings/accounts'
     });
   }
 }());

@@ -88,7 +88,8 @@
             params: options.params || {},
             roles: ((options.roles === null || typeof options.roles === 'undefined') ? service.menus[menuId].items[itemIndex].roles : options.roles),
             position: options.position || 0,
-            shouldRender: shouldRender
+            shouldRender: shouldRender,
+            url: options.url || ''
           });
         }
       }
