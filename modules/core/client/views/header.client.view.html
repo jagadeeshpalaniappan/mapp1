@@ -8,10 +8,13 @@
 
     <ul class="nav navbar-nav navbar-right" ng-if="vm.menu.shouldRender(vm.authentication.user);">
 
+      <!-- user menu -->
       <li class="dropdown" uib-dropdown>
         <a class="dropdown-toggle user-header-dropdown-toggle" uib-dropdown-toggle role="button">
           <img ng-src="/{{vm.authentication.user.profileImageURL}}" alt="{{vm.authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="vm.authentication.user.displayName"></span> <b class="caret"></b>
+          <span class="hidden-xs">
+            {{::vm.authentication.user.displayName}}<b class="caret"></b>
+          </span>
         </a>
         <ul class="dropdown-menu" role="menu">
           <li ui-sref-active="active" ng-repeat="item in vm.accountMenu.items">
@@ -24,18 +27,94 @@
         </ul>
       </li>
 
-      <li ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
-        <a ng-switch-when="dropdown" class="dropdown-toggle info-number" uib-dropdown-toggle role="button">
-          <!--{{::item.title}}&nbsp;<span class="caret"></span>-->
+      <!-- notifications menu -->
+      <li role="presentation" class="dropdown">
+        <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-envelope-o"></i>
+          <span class="badge bg-green">6</span>
+        </a>
+        <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+          <li>
+            <a>
+                  <span class="image"><img src="/modules/users/client/img/profile/default.png"
+                                           alt="Profile Image"/></span>
+                            <span>
+                              <span>Jagadeesh Palaniappan</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+            </a>
+          </li>
+          <li>
+            <a>
+                  <span class="image"><img src="/modules/users/client/img/profile/default.png"
+                                           alt="Profile Image"/></span>
+                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+            </a>
+          </li>
+          <li>
+            <a>
+                  <span class="image"><img src="/modules/users/client/img/profile/default.png"
+                                           alt="Profile Image"/></span>
+                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+            </a>
+          </li>
+          <li>
+            <a>
+                  <span class="image"><img src="/modules/users/client/img/profile/default.png"
+                                           alt="Profile Image"/></span>
+                            <span>
+                              <span>John Smith</span>
+                              <span class="time">3 mins ago</span>
+                            </span>
+                            <span class="message">
+                              Film festivals used to be do-or-die moments for movie makers. They were where...
+                            </span>
+            </a>
+          </li>
+          <li>
+            <div class="text-center">
+              <a>
+                <strong>See All Alerts</strong>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </li>
+
+      <!-- menu -->
+      <li role="presentation" ng-repeat="item in vm.menu.items | orderBy: 'position'" ng-if="item.shouldRender(vm.authentication.user);" ng-switch="item.type" ng-class="{ dropdown: item.type === 'dropdown' }" ui-sref-active="active" class="{{item.class}}" uib-dropdown="item.type === 'dropdown'">
+        <a ng-switch-when="dropdown" class="dropdown-toggle info-number" uib-dropdown-toggle role="button">
+          <i class="fa fa-star"></i>
+          <span class="hidden-xs">{{::item.title}}&nbsp;<span class="caret"></span></span>
         </a>
         <ul ng-switch-when="dropdown" class="dropdown-menu">
           <li ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(vm.authentication.user);">
             <a ui-sref="{{subitem.state}}({{subitem.params}})" ng-bind="subitem.title"></a>
           </li>
         </ul>
-        <a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>
+
+        <a ng-switch-default ui-sref="{{item.state}}">
+          <i class="fa fa-star"></i>
+          <span class="hidden-xs">{{::item.title}}</span>
+        </a>
       </li>
+
     </ul>
 
   </nav>
